@@ -1,29 +1,16 @@
-import { Link } from 'expo-router'
-import { StyleSheet, View, Text } from 'react-native'
+import { Link, useGlobalSearchParams } from 'expo-router'
+
+import { YStack, Text } from 'tamagui'
 
 export default function SneakerDetails() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
+  const { id } = useGlobalSearchParams()
 
-      <Link href={`/(tabs)/home`}>Voltar para Home</Link>
-    </View>
+  return (
+    <YStack flex={1} justifyContent="center" alignItems="center">
+      <Text color="black">Sneaker</Text>
+      <Text color="black">{id}</Text>
+
+      <Link href={`/(tabs)`}>Voltar para Home</Link>
+    </YStack>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-})
