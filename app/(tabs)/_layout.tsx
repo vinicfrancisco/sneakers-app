@@ -15,17 +15,25 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{}}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Tab One',
+          title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
 
       <Tabs.Screen
-        name="two"
+        name="wishlist"
         options={{
-          title: 'Tab Two',
+          title: 'Wishlist',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+
+      <Tabs.Screen
+        name="collection"
+        options={{
+          title: 'My Collection',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
