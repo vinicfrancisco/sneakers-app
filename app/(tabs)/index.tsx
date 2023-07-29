@@ -1,10 +1,13 @@
+import { Stack } from 'tamagui'
 import { Link } from 'expo-router'
-import { Stack, Text } from 'tamagui'
+import { Heading } from '@/components/Heading'
+import { Text } from '@/components/Text'
 
 export default function Home() {
   return (
     <Stack>
-      <Text color="black">Home</Text>
+      <Heading>HEADING</Heading>
+      <Text>TEXT</Text>
 
       <Link
         href={{

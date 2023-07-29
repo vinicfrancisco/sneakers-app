@@ -1,14 +1,14 @@
 import { Link, useGlobalSearchParams } from 'expo-router'
-
-import { YStack, Text } from 'tamagui'
+import { YStack } from 'tamagui'
+import { Text } from '@/components/Text'
 
 export default function SneakerDetails() {
   const { id } = useGlobalSearchParams()
 
   return (
     <YStack flex={1} justifyContent="center" alignItems="center">
-      <Text color="black">Sneaker</Text>
-      <Text color="black">{id}</Text>
+      <Text>Sneaker</Text>
+      <Text>{id}</Text>
 
       <Link href={`/(tabs)`}>Voltar para Home</Link>
     </YStack>

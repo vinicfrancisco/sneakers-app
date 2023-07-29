@@ -1,30 +1,36 @@
 import { createInterFont } from '@tamagui/font-inter'
-import { shorthands } from '@tamagui/shorthands'
-import { themes, tokens } from '@tamagui/themes'
 import { createTamagui } from 'tamagui'
+import shorthands from './assets/theme/shorthands'
+import tokens from './assets/theme/tokens'
 
 const headingFont = createInterFont()
 const bodyFont = createInterFont()
 
 const config = createTamagui({
-  defaultTheme: 'light',
-  shorthands,
   fonts: {
     heading: headingFont,
     body: bodyFont,
   },
-  themes,
+  themes: {
+    light: {
+      bg: tokens.color.white,
+      text: tokens.color.black,
+    },
+    dark: {
+      bg: tokens.color.black,
+      text: tokens.color.white,
+    },
+  },
   tokens,
+  shorthands,
+  onlyAllowShorthands: true,
 })
 
 export type AppConfig = typeof config
 
 declare module 'tamagui' {
-  // overrides TamaguiCustomConfig so your custom types
-
-  // work everywhere you import `tamagui`
-
-  type TamaguiCustomConfig = AppConfig
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface TamaguiCustomConfig extends AppConfig {}
 }
 
 export default config

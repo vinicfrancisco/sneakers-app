@@ -1,5 +1,6 @@
 import { Link, Stack } from 'expo-router'
-import { YStack, Text } from 'tamagui'
+import { YStack } from 'tamagui'
+import { Text } from '@/components/Text'
 
 export default function NotFoundScreen() {
   return (

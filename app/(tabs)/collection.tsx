@@ -1,9 +1,10 @@
-import { Stack, Text } from 'tamagui'
+import { Stack } from 'tamagui'
+import { Text } from '@/components/Text'
 
 export default function Collection() {
   return (
     <Stack>
-      <Text color="black">Collection</Text>
+      <Text>Collection</Text>
     </Stack>
   )
 }

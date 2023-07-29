@@ -39,7 +39,7 @@ export default function RootLayout() {
   }
 
   return (
-    <TamaguiProvider config={appConfig}>
+    <TamaguiProvider config={appConfig} defaultTheme="light">
       <RootLayoutNav />
     </TamaguiProvider>
   )

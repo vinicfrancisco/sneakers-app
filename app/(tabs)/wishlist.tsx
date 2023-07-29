@@ -1,9 +1,10 @@
-import { Stack, Text } from 'tamagui'
+import { Stack } from 'tamagui'
+import { Text } from '@/components/Text'
 
 export default function Wishlist() {
   return (
     <Stack>
-      <Text color="black">Wishlist</Text>
+      <Text>Wishlist</Text>
     </Stack>
   )
 }
