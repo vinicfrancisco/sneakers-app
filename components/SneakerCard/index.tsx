@@ -8,7 +8,12 @@ export default function SneakerCard() {
 
   return (
     <TouchableOpacity>
-      <Stack bg="$itemBackground" br="$6" w={220} borderBottomRightRadius="$10">
+      <Stack
+        bg="$componentBackground"
+        br="$6"
+        w={220}
+        borderBottomRightRadius="$10"
+      >
         <Stack px="$4" paddingTop="$4">
           <Heading fs="$5" paddingRight="$5">
             Air Jordan 1 Travis Scott OG
