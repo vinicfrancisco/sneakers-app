@@ -1,5 +1,4 @@
 import appConfig from '@/tamagui.config'
-import FontAwesome from '@expo/vector-icons/FontAwesome'
 import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
@@ -19,7 +18,6 @@ SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    ...FontAwesome.font,
     ...Feather.font,
     Nunito: require('../assets/fonts/Nunito-Regular.ttf'),
     NunitoBold: require('../assets/fonts/Nunito-Bold.ttf'),
