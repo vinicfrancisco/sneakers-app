@@ -7,21 +7,39 @@ export default function SneakerCard() {
   const { bg } = useTheme()
 
   return (
-    <Stack bg="$itemBg">
-      <Heading>Air Jordan 1 Travis Scott OG</Heading>
+    <Stack bg="$itemBg" br="$6" w={220} borderBottomRightRadius="$10">
+      <Stack px="$4" paddingTop="$4">
+        <Heading fs="$5" paddingRight="$5">
+          Air Jordan 1 Travis Scott OG
+        </Heading>
 
-      <Image
-        alt="Air Jordan 1 Travis Scott OG"
-        source={{
-          uri: 'https://images.stockx.com/images/Air-Jordan-1-Retro-High-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1608736403&q=57',
-        }}
-      />
+        <Image
+          alt="Air Jordan 1 Travis Scott OG"
+          w={200}
+          h={120}
+          my="$8"
+          resizeMode="stretch"
+          source={{
+            uri: 'https://droper-media.s3.amazonaws.com/1511202042239259.webp',
+          }}
+        />
+      </Stack>
 
-      <XStack>
-        <Text>5,594 €</Text>
+      <XStack ai="center">
+        <Heading f={1} fs="$5" px="$4">
+          5,594 €
+        </Heading>
 
-        <Stack>
-          <Feather name="chevron-right" size={24} color={bg.get()} />
+        <Stack
+          h={70}
+          w={240 * 0.4}
+          bg="$black"
+          ai="center"
+          jc="center"
+          borderTopLeftRadius="$6"
+          borderBottomRightRadius="$10"
+        >
+          <Feather name="chevron-right" size={32} color={bg.get()} />
         </Stack>
       </XStack>
     </Stack>
