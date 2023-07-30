@@ -1,24 +1,17 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome'
+import BottomTabs from '@/components/BottomTabs'
+import Feather from '@expo/vector-icons/Feather'
 import { Tabs } from 'expo-router'
-
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name']
-  color: string
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />
-}
 
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs tabBar={(props) => <BottomTabs {...props} />}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="home" size={size} color={color} />
+          ),
         }}
       />
 
@@ -26,7 +19,9 @@ export default function TabLayout() {
         name="wishlist"
         options={{
           title: 'Wishlist',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="tag" size={size} color={color} />
+          ),
         }}
       />
 
@@ -34,7 +29,9 @@ export default function TabLayout() {
         name="collection"
         options={{
           title: 'My Collection',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, color }) => (
+            <Feather name="shopping-bag" size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
