@@ -1,3 +1,4 @@
+import { themes } from '@tamagui/themes'
 import { createTamagui } from 'tamagui'
 import { body, heading } from './assets/theme/fonts'
 import shorthands from './assets/theme/shorthands'
@@ -9,19 +10,22 @@ const config = createTamagui({
     body,
   },
   themes: {
+    ...themes,
     light: {
-      background: tokens.color.white,
-      componentBackground: tokens.color.gray1,
+      ...themes.light,
+      background: tokens.color.gray1,
+      componentBackground: tokens.color.white,
       primary: tokens.color.black,
-      icon: tokens.color.gray2,
       secondary: tokens.color.gray3,
+      icon: tokens.color.gray2,
     },
     dark: {
+      ...themes.dark,
       background: tokens.color.black,
       componentBackground: tokens.color.gray4,
       primary: tokens.color.gray1,
-      icon: tokens.color.gray2,
       secondary: tokens.color.gray2,
+      icon: tokens.color.gray2,
     },
   },
   tokens,
