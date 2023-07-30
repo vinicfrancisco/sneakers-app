@@ -1,24 +1,18 @@
+import SneakerCard from '@/components/SneakerCard'
+import { FlashList } from '@shopify/flash-list'
 import { Stack } from 'tamagui'
-import { Link } from 'expo-router'
-import { Heading } from '@/components/Heading'
-import { Text } from '@/components/Text'
+
+const data = new Array(50).fill(0)
 
 export default function Home() {
   return (
-    <Stack>
-      <Heading>HEADING</Heading>
-      <Text>TEXT</Text>
-
-      <Link
-        href={{
-          pathname: `/sneaker`,
-          params: {
-            id: '123',
-          },
-        }}
-      >
-        See Yeezy
-      </Link>
+    <Stack f={1} bg="$bg">
+      <FlashList
+        horizontal
+        estimatedItemSize={187}
+        data={data}
+        renderItem={() => <SneakerCard />}
+      />
     </Stack>
   )
 }
