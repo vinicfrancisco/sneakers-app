@@ -15,10 +15,11 @@ export default function SneakerCard() {
           uri: 'https://images.stockx.com/images/Air-Jordan-1-Retro-High-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=75&fm=avif&auto=compress&dpr=1&trim=color&updated_at=1608736403&q=57',
         }}
       />
+
       <XStack>
         <Text>5,594 €</Text>
 
-        <Stack bg="$itemBg">
+        <Stack>
           <Feather name="chevron-right" size={24} color={bg.get()} />
         </Stack>
       </XStack>
