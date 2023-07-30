@@ -1,5 +1,5 @@
-import { Tabs, router } from 'expo-router'
 import { TouchableOpacity } from 'react-native'
+import { Tabs, router } from 'expo-router'
 import { Stack, XStack, useTheme } from 'tamagui'
 
 type BottomTabProps = Parameters<

@@ -1,6 +1,6 @@
-import BottomTabs from '@/components/BottomTabs'
 import Feather from '@expo/vector-icons/Feather'
 import { Tabs } from 'expo-router'
+import BottomTabs from '~/components/BottomTabs'
 
 export default function TabLayout() {
   return (

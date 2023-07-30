@@ -1,7 +1,7 @@
-import SneakerCard from '@/components/SneakerCard'
-import Heading from '@/components/basic/Heading'
 import { FlashList } from '@shopify/flash-list'
 import { Stack, getTokens } from 'tamagui'
+import Heading from '~/components/basic/Heading'
+import SneakerCard from '~/components/SneakerCard'
 
 const data = new Array(50).fill(0)
 

@@ -1,6 +1,25 @@
 {
   "extends": "@rocketseat/eslint-config/react",
+  "plugins": ["eslint-plugin-import-helpers"],
   "rules": {
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "never",
+        "groups": [
+          "/^react/",
+          "/^react-native/",
+          "module",
+          "/^~/components/",
+          "/^~/store/",
+          "/^~/assets/",
+          "/^~/utils/",
+          "/^~//",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ]
   }
 }

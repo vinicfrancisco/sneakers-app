@@ -1,7 +1,7 @@
-import Heading from '@/components/basic/Heading'
-import Feather from '@expo/vector-icons/Feather'
 import { TouchableOpacity } from 'react-native'
+import Feather from '@expo/vector-icons/Feather'
 import { Image, Stack, XStack, useTheme } from 'tamagui'
+import Heading from '~/components/basic/Heading'
 
 export default function SneakerCard() {
   const { background } = useTheme()
