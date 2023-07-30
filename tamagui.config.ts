@@ -18,10 +18,10 @@ const config = createTamagui({
     },
     dark: {
       background: tokens.color.black,
-      componentBackground: tokens.color.gray3,
-      primary: tokens.color.white,
+      componentBackground: tokens.color.gray4,
+      primary: tokens.color.gray1,
       icon: tokens.color.gray2,
-      secondary: tokens.color.white,
+      secondary: tokens.color.gray2,
     },
   },
   tokens,

@@ -1,11 +1,11 @@
-import appConfig from '@/tamagui.config'
+import { useEffect } from 'react'
 import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
+import appConfig from '~/tamagui.config'
 
 export { ErrorBoundary } from 'expo-router'
 

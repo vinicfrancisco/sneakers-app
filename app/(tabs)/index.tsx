@@ -1,7 +1,7 @@
-import SneakerCard from '@/components/SneakerCard'
-import Heading from '@/components/basic/Heading'
-import Input from '@/components/basic/Input'
-import SafeAreaView from '@/components/basic/SafeAreaView'
+import SneakerCard from '~/components/SneakerCard'
+import Heading from '~/components/basic/Heading'
+import Input from '~/components/basic/Input'
+import SafeAreaView from '~/components/basic/SafeAreaView'
 import { FlashList } from '@shopify/flash-list'
 import { Stack, getTokens } from 'tamagui'
 
