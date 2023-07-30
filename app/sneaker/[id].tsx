@@ -1,6 +1,6 @@
 import { Link, useGlobalSearchParams } from 'expo-router'
 import { YStack } from 'tamagui'
-import { Text } from '@/components/basic/Text'
+import Text from '@/components/basic/Text'
 
 export default function SneakerDetails() {
   const { id } = useGlobalSearchParams()

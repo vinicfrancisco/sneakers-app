@@ -1,13 +1,15 @@
 import { GetProps, Heading as TamaguiHeading, styled } from 'tamagui'
 
-export const Heading = styled(TamaguiHeading, {
+const Heading = styled(TamaguiHeading, {
   name: 'Heading',
 
   fontFamily: '$heading',
-  color: '$text',
+  color: '$primary',
   fontSize: '$4',
 
   variants: {},
 })
 
 export type HeadingProps = GetProps<typeof Heading>
+
+export default Heading
