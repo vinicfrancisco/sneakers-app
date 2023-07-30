@@ -1,5 +1,6 @@
 import appConfig from '@/tamagui.config'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
+import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
@@ -19,6 +20,7 @@ SplashScreen.preventAutoHideAsync()
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
+    ...Feather.font,
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
   })
