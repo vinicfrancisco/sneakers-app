@@ -13,11 +13,13 @@ const config = createTamagui({
       bg: tokens.color.white,
       text: tokens.color.black,
       itemBg: tokens.color.gray1,
+      subTitle: tokens.color.gray3,
     },
     dark: {
       bg: tokens.color.black,
       text: tokens.color.white,
       itemBg: tokens.color.gray3,
+      subTitle: tokens.color.white,
     },
   },
   tokens,
