@@ -5,6 +5,7 @@ export const Heading = styled(TamaguiHeading, {
 
   fontFamily: '$heading',
   color: '$text',
+  fontSize: '$4',
 
   variants: {},
 })

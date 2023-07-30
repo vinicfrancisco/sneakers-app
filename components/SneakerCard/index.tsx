@@ -1,13 +1,14 @@
 import { Text } from '@/components/basic/Text'
 import Feather from '@expo/vector-icons/Feather'
 import { Image, Stack, XStack, useTheme } from 'tamagui'
+import { Heading } from '../basic/Heading'
 
 export default function SneakerCard() {
   const { bg } = useTheme()
 
   return (
     <Stack bg="$itemBg">
-      <Text>Air Jordan 1 Travis Scott OG</Text>
+      <Heading>Air Jordan 1 Travis Scott OG</Heading>
 
       <Image
         alt="Air Jordan 1 Travis Scott OG"

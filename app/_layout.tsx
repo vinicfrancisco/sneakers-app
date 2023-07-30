@@ -21,8 +21,9 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
     ...Feather.font,
-    Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
-    InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+    Nunito: require('../assets/fonts/Nunito-Regular.ttf'),
+    NunitoBold: require('../assets/fonts/Nunito-Bold.ttf'),
+    NunitoLight: require('../assets/fonts/Nunito-Light.ttf'),
   })
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.

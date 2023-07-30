@@ -1,15 +1,12 @@
-import { createInterFont } from '@tamagui/font-inter'
 import { createTamagui } from 'tamagui'
+import { body, heading } from './assets/theme/fonts'
 import shorthands from './assets/theme/shorthands'
 import tokens from './assets/theme/tokens'
 
-const headingFont = createInterFont()
-const bodyFont = createInterFont()
-
 const config = createTamagui({
   fonts: {
-    heading: headingFont,
-    body: bodyFont,
+    heading,
+    body,
   },
   themes: {
     light: {
