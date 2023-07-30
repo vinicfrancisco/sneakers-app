@@ -1,9 +1,16 @@
 import { TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
-import { Image, Stack, XStack, useTheme } from 'tamagui'
+import { Image, Stack, XStack, YStack, useTheme } from 'tamagui'
 import Heading from '~/components/basic/Heading'
+import { ISneaker } from '~/domain/sneakers'
 
-export default function SneakerCard() {
+interface ISneakerCardProps {
+  data: ISneaker
+}
+
+export default function SneakerCard({ data }: ISneakerCardProps) {
+  const { shoeName, thumbnail, retailPrice } = data
+
   const { background } = useTheme()
 
   return (
@@ -14,9 +21,9 @@ export default function SneakerCard() {
       borderBottomRightRadius="$10"
     >
       <TouchableOpacity>
-        <Stack px="$4" paddingTop="$4">
-          <Heading fs="$5" paddingRight="$5">
-            Air Jordan 1 Travis Scott OG
+        <YStack px="$4" paddingTop="$4">
+          <Heading fs="$5" paddingRight="$5" numberOfLines={2}>
+            {shoeName}
           </Heading>
 
           <Image
@@ -26,14 +33,14 @@ export default function SneakerCard() {
             my="$8"
             resizeMode="stretch"
             source={{
-              uri: 'https://droper-media.s3.amazonaws.com/1511202042239259.webp',
+              uri: thumbnail,
             }}
           />
-        </Stack>
+        </YStack>
 
         <XStack ai="center">
           <Heading f={1} fs="$5" px="$4">
-            5,594 €
+            {`$ ${retailPrice}`}
           </Heading>
 
           <Stack
