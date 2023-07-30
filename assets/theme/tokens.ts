@@ -1,4 +1,5 @@
 import { createTokens } from 'tamagui'
+import { tokens as defaultTokens } from '@tamagui/themes'
 
 const size = {
   0: 0,
@@ -15,15 +16,19 @@ const size = {
   true: 2,
 }
 
+const color = {
+  ...defaultTokens.color,
+  white: '#FFFFFF',
+  lightGray: '#F7F7F9',
+  black: '#1C1D20',
+  darkGray: '#333436',
+}
+
 const tokens = createTokens({
+  ...defaultTokens,
+  color,
   size,
   space: { ...size, '-1': -8, '-2': -16 },
-  radius: { 0: 0, 1: 5, 2: 10, 3: 15, 4: 20 },
-  zIndex: { 0: 0, 1: 100, 2: 200 },
-  color: {
-    white: '#FFFCF9',
-    black: '#353535',
-  },
 })
 
 export default tokens

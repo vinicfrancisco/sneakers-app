@@ -10,6 +10,8 @@ const shorthands = {
   py: 'paddingVertical',
   mx: 'marginHorizontal',
   my: 'marginVertical',
+  jc: 'justifyContent',
+  ai: 'alignItems',
 } as const
 
 export default shorthands
