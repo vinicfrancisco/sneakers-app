@@ -17,7 +17,7 @@ export default function Home() {
       <FlashList
         horizontal
         showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <Stack width="$6" />}
+        ItemSeparatorComponent={() => <Stack width="$8" />}
         estimatedItemSize={187}
         data={data}
         contentContainerStyle={{
