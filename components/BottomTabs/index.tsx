@@ -12,6 +12,8 @@ interface HandlePressProps {
   isFocused: boolean
 }
 
+export const BOTTOM_TABS_HEIGHT = 64
+
 export default function BottomTabs({
   descriptors,
   insets,
@@ -76,7 +78,12 @@ export default function BottomTabs({
               }
               onLongPress={() => handlelongPress(route.key)}
             >
-              <Stack key={route.key} f={1} ai="center" py="$4">
+              <Stack
+                height={BOTTOM_TABS_HEIGHT}
+                ai="center"
+                jc="center"
+                py="$4"
+              >
                 {options?.tabBarIcon?.({
                   color: isFocused ? background.get() : secondary.get(),
                   focused: isFocused,
