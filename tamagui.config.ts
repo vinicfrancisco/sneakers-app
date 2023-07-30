@@ -15,12 +15,12 @@ const config = createTamagui({
     light: {
       bg: tokens.color.white,
       text: tokens.color.black,
-      itemBg: tokens.color.lightGray,
+      itemBg: tokens.color.gray1,
     },
     dark: {
       bg: tokens.color.black,
       text: tokens.color.white,
-      itemBg: tokens.color.darkGray,
+      itemBg: tokens.color.gray3,
     },
   },
   tokens,

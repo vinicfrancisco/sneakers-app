@@ -8,6 +8,7 @@ export default function SneakerCard() {
   return (
     <Stack bg="$itemBg">
       <Text>Air Jordan 1 Travis Scott OG</Text>
+
       <Image
         alt="Air Jordan 1 Travis Scott OG"
         source={{

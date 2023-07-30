@@ -17,11 +17,12 @@ const size = {
 }
 
 const color = {
-  ...defaultTokens.color,
   white: '#FFFFFF',
-  lightGray: '#F7F7F9',
+  gray0: '#F5F5F5',
+  gray1: '#F7F7F9',
+  gray2: '#959CA7',
+  gray3: '#333436',
   black: '#1C1D20',
-  darkGray: '#333436',
 }
 
 const tokens = createTokens({
