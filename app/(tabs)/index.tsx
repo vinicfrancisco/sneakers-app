@@ -9,13 +9,14 @@ export default function Home() {
   const { space } = getTokens()
 
   return (
-    <Stack f={1} bg="$bg" padding="$4">
+    <Stack f={1} bg="$bg" paddingTop="$4">
       <Heading mx="$4" color="$subTitle" fs="$2">
         Most Popular
       </Heading>
 
       <FlashList
         horizontal
+        showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={() => <Stack width="$8" />}
         estimatedItemSize={187}
         data={data}
