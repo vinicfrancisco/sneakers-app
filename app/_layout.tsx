@@ -3,6 +3,8 @@ import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { TamaguiProvider } from 'tamagui'
 
 export { ErrorBoundary } from 'expo-router'
@@ -40,9 +42,13 @@ export default function RootLayout() {
   }
 
   return (
-    <TamaguiProvider config={appConfig} defaultTheme="light">
-      <RootLayoutNav />
-    </TamaguiProvider>
+    <SafeAreaProvider>
+      <TamaguiProvider config={appConfig} defaultTheme="light">
+        <StatusBar style="dark" />
+
+        <RootLayoutNav />
+      </TamaguiProvider>
+    </SafeAreaProvider>
   )
 }
 
