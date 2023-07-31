@@ -1,30 +1,30 @@
-export interface ILowestResellPrice {
-  stockX: number
-  flightClub?: number
-  goat?: number
+export interface ISneakerImages {
+  '360': string[]
+  original: string
+  small: string
+  thumbnail: string
 }
 
-export interface IResellLinks {
+export interface ISneakerLinks {
   stockX: string
-  flightClub?: string
-  goat?: string
+  goat: string
+  flightClub: string
+  stadiumGoods: string
 }
 
 export interface ISneaker {
-  lowestResellPrice: ILowestResellPrice
-  imageLinks: any[]
-  _id: string
-  shoeName: string
+  id: string
   brand: string
-  silhoutte: string
-  styleID: string
-  make: string
   colorway: string
-  retailPrice: number
-  thumbnail: string
+  estimatedMarketValue: number
+  gender: string
+  image: ISneakerImages
+  links: ISneakerLinks
+  name: string
   releaseDate: string
-  description: string
-  urlKey: string
-  resellLinks: IResellLinks
-  goatProductId?: number
+  releaseYear: string
+  retailPrice: number
+  silhouette: string
+  sku: string
+  story: string
 }

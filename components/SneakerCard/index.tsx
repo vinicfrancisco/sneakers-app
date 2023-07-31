@@ -9,7 +9,7 @@ interface ISneakerCardProps {
 }
 
 export default function SneakerCard({ data }: ISneakerCardProps) {
-  const { shoeName, thumbnail, retailPrice } = data
+  const { name, image, retailPrice } = data
 
   const { background } = useTheme()
 
@@ -23,17 +23,16 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
       <TouchableOpacity>
         <YStack px="$4" paddingTop="$4">
           <Heading fs="$5" paddingRight="$5" numberOfLines={2}>
-            {shoeName}
+            {name}
           </Heading>
 
           <Image
             alt="Air Jordan 1 Travis Scott OG"
-            w={200}
-            h={120}
+            h={180}
             my="$8"
-            resizeMode="stretch"
+            resizeMode="contain"
             source={{
-              uri: thumbnail,
+              uri: image.original,
             }}
           />
         </YStack>
