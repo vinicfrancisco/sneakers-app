@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ThemeContext } from '~/contexts/ThemeContext'
+import { ThemeContext } from '~/providers/ThemeProvider'
 
 function useAppTheme() {
   const { theme, toggleTheme } = useContext(ThemeContext)

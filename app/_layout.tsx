@@ -3,8 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { StatusBar } from 'expo-status-bar'
-import { ThemeProvider } from '~/contexts/ThemeContext'
+import { ThemeProvider } from '~/providers/ThemeProvider'
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -42,8 +41,6 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
-
       <ThemeProvider>
         <RootLayoutNav />
       </ThemeProvider>

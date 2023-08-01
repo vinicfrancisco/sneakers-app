@@ -1,6 +1,6 @@
 import { createContext, useCallback, useState } from 'react'
 import { useColorScheme } from 'react-native'
-import { setStatusBarStyle } from 'expo-status-bar'
+import { StatusBar, setStatusBarStyle } from 'expo-status-bar'
 import { TamaguiProvider } from 'tamagui'
 import appConfig from '~/tamagui.config'
 
@@ -32,6 +32,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       }}
     >
       <TamaguiProvider config={appConfig} defaultTheme={theme}>
+        <StatusBar style={systemTheme === 'dark' ? 'light' : 'dark'} />
+
         {children}
       </TamaguiProvider>
     </ThemeContext.Provider>
