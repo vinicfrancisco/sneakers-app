@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+import { StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { FlashList } from '@shopify/flash-list'
 import { ScrollView, Stack, getTokens } from 'tamagui'
@@ -5,9 +7,10 @@ import Heading from '~/components/basic/Heading'
 import { BOTTOM_TABS_HEIGHT } from '~/components/BottomTabs'
 import HomeHeader from '~/components/HomeHeader'
 import SneakerCard, { CARD_WIDTH } from '~/components/SneakerCard'
+import UpcomingCard from '~/components/UpcomingCard'
 import { ISneaker } from '~/domain/sneakers'
 
-const mostPopular: ISneaker[] = [
+const mock: ISneaker[] = [
   {
     id: '37531b92-ecca-4440-8655-c0c9073a4a23',
     brand: 'Jordan',
@@ -317,28 +320,50 @@ export default function Home() {
   return (
     <ScrollView
       bg="$background"
+      showsVerticalScrollIndicator={false}
       contentContainerStyle={{
-        paddingBottom: BOTTOM_TABS_HEIGHT + bottom + space[4].val,
-        paddingTop: top + space[4].val,
+        paddingBottom: BOTTOM_TABS_HEIGHT + bottom + space.md.val,
+        paddingTop: top + space.md.val,
       }}
     >
       <HomeHeader />
 
-      <Heading mx="$4" color="$secondary" fs="$2" mb="$6">
+      <Heading mx="$md" my="$lg" color="$secondary" fs="$2">
         New Releases
       </Heading>
 
       <FlashList
         horizontal
         showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <Stack width="$8" />}
+        ItemSeparatorComponent={() => <Stack width="$lg" />}
         estimatedItemSize={CARD_WIDTH}
-        data={mostPopular}
+        data={mock}
         contentContainerStyle={{
-          paddingHorizontal: space[4].val,
+          paddingHorizontal: space.md.val,
         }}
         renderItem={({ item }) => <SneakerCard data={item} />}
       />
+
+      <Stack px="$md">
+        <Heading my="$lg" color="$secondary" fs="$2">
+          Upcoming
+        </Heading>
+
+        {mock.slice(0, 5).map((item, index) => (
+          <Fragment key={item.id}>
+            <UpcomingCard data={item} />
+
+            {index >= 0 && index < mock.slice(0, 5).length - 1 && (
+              <Stack
+                my="$sm"
+                mx="$md"
+                h={StyleSheet.hairlineWidth}
+                bg="$primary"
+              />
+            )}
+          </Fragment>
+        ))}
+      </Stack>
     </ScrollView>
   )
 }
