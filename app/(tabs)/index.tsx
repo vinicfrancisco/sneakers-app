@@ -4,7 +4,7 @@ import { ScrollView, Stack, getTokens } from 'tamagui'
 import Heading from '~/components/basic/Heading'
 import { BOTTOM_TABS_HEIGHT } from '~/components/BottomTabs'
 import HomeHeader from '~/components/HomeHeader'
-import SneakerCard from '~/components/SneakerCard'
+import SneakerCard, { CARD_WIDTH } from '~/components/SneakerCard'
 import { ISneaker } from '~/domain/sneakers'
 
 const mostPopular: ISneaker[] = [
@@ -332,7 +332,7 @@ export default function Home() {
         horizontal
         showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={() => <Stack width="$8" />}
-        estimatedItemSize={248}
+        estimatedItemSize={CARD_WIDTH}
         data={mostPopular}
         contentContainerStyle={{
           paddingHorizontal: space[4].val,

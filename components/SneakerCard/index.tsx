@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native'
+import { Dimensions, TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
 import { Image, Stack, XStack, YStack, useTheme } from 'tamagui'
 import Heading from '~/components/basic/Heading'
@@ -7,6 +7,12 @@ import { ISneaker } from '~/domain/sneakers'
 interface ISneakerCardProps {
   data: ISneaker
 }
+
+const SCREEN_WIDTH = Dimensions.get('window').width
+export const CARD_WIDTH = SCREEN_WIDTH * 0.6
+const CARD_IMAGE_HEIGHT = 180
+const CARD_BUTTON_WIDTH = CARD_WIDTH * 0.4
+const CARD_BUTTON_HEIGHT = 70
 
 export default function SneakerCard({ data }: ISneakerCardProps) {
   const { name, image, retailPrice } = data
@@ -17,7 +23,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
     <Stack
       bg="$componentBackground"
       br="$6"
-      w={220}
+      w={CARD_WIDTH}
       borderBottomRightRadius="$10"
     >
       <TouchableOpacity>
@@ -28,7 +34,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
 
           <Image
             alt="Air Jordan 1 Travis Scott OG"
-            h={180}
+            h={CARD_IMAGE_HEIGHT}
             my="$8"
             resizeMode="contain"
             source={{
@@ -43,8 +49,8 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
           </Heading>
 
           <Stack
-            h={70}
-            w={240 * 0.4}
+            h={CARD_BUTTON_HEIGHT}
+            w={CARD_BUTTON_WIDTH}
             bg="$primary"
             ai="center"
             jc="center"
