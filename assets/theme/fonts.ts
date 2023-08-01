@@ -27,7 +27,7 @@ export const heading = createFont({
 })
 
 export const body = createFont({
-  family: 'NunitoBold',
+  family: 'Nunito',
   size: {
     1: 12,
     2: 14,
