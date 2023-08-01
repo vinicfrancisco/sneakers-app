@@ -13,7 +13,7 @@ const size = {
   8: 32,
   9: 36,
   10: 40,
-  true: 2,
+  true: 0,
 }
 
 const color = {

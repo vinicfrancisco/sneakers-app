@@ -1,20 +1,15 @@
-import { themes } from '@tamagui/themes'
 import { createTamagui } from 'tamagui'
-import { dark, light } from './assets/themes'
-import { body, heading } from './assets/themes/utils/fonts'
-import shorthands from './assets/themes/utils/shorthands'
-import tokens from './assets/themes/utils/tokens'
+import { themes } from './assets/theme'
+import { body, heading } from './assets/theme/fonts'
+import shorthands from './assets/theme/shorthands'
+import tokens from './assets/theme/tokens'
 
 const config = createTamagui({
   fonts: {
     heading,
     body,
   },
-  themes: {
-    ...themes,
-    light,
-    dark,
-  },
+  themes,
   tokens,
   shorthands,
   onlyAllowShorthands: true,
