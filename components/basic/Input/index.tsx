@@ -11,7 +11,7 @@ const TamaguiInput = styled(TextInput, {
   name: 'Input',
 
   f: 1,
-  p: '$4',
+  p: '$md',
   color: '$primary',
   fontFamily: '$body',
   placeholderTextColor: '$secondary',
@@ -28,8 +28,8 @@ function Input({ search, ...props }: InputProps) {
       borderWidth={2}
       borderColor={isFocused ? '$primary' : 'transparent'}
       bg="$componentBackground"
-      br="$3"
-      paddingLeft="$4"
+      br="$sm"
+      paddingLeft="$md"
     >
       {search && (
         <Feather

@@ -9,9 +9,9 @@ export default function HomeHeader() {
   const { theme, toggleTheme } = useAppTheme()
 
   return (
-    <YStack mx="$4" mb="$8">
+    <YStack mx="$md">
       <XStack jc="space-between">
-        <Heading fs={'$5'} mb="$4">
+        <Heading fs="$5" mb="$md">
           Search products
         </Heading>
 

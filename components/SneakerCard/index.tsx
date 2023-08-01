@@ -23,17 +23,17 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
   return (
     <Stack
       bg="$componentBackground"
-      br="$6"
       w={CARD_WIDTH}
-      borderBottomRightRadius="$10"
+      br="$md"
+      borderBottomRightRadius="$lg"
     >
       <TouchableOpacity>
-        <YStack px="$4" paddingTop="$4">
-          <Heading fs="$5" paddingRight="$5" numberOfLines={2}>
+        <YStack p="$md">
+          <Heading fs="$5" paddingRight="$md" numberOfLines={2}>
             {name}
           </Heading>
 
-          <Text fs="$3" numberOfLines={1} color="$secondary" mt="$1">
+          <Text fs="$3" numberOfLines={1} color="$secondary" mt="$sm">
             {brand}
           </Text>
         </YStack>
@@ -41,7 +41,6 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
         <Image
           alt="Air Jordan 1 Travis Scott OG"
           h={CARD_IMAGE_HEIGHT}
-          my="$8"
           resizeMode="contain"
           source={{
             uri: image.original,
@@ -49,7 +48,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
         />
 
         <XStack ai="center">
-          <Heading f={1} fs="$5" px="$4">
+          <Heading f={1} fs="$5" px="$md">
             {`$ ${retailPrice}`}
           </Heading>
 
@@ -59,8 +58,8 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
             bg="$primary"
             ai="center"
             jc="center"
-            borderTopLeftRadius="$6"
-            borderBottomRightRadius="$10"
+            borderTopLeftRadius="$md"
+            borderBottomRightRadius="$xl"
           >
             <Feather name="chevron-right" size={32} color={background.get()} />
           </Stack>

@@ -50,10 +50,10 @@ export default function BottomTabs({
   return (
     <XStack
       bg="$primary"
-      br="$10"
+      br="$xl"
       position="absolute"
       bottom={insets.bottom}
-      px="$4"
+      px="$md"
       left={50}
       f={1}
       right={50}
@@ -82,7 +82,7 @@ export default function BottomTabs({
                 height={BOTTOM_TABS_HEIGHT}
                 ai="center"
                 jc="center"
-                py="$4"
+                py="$md"
               >
                 {options?.tabBarIcon?.({
                   color: isFocused ? background.get() : secondary.get(),
