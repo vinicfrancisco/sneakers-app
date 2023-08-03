@@ -1,19 +1,17 @@
 import { TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
-import { useTheme, YStack, XStack, Heading } from 'tamagui'
+import theme from '~/assets/theme'
 import useAppTheme from '~/hooks/useTheme'
-import Input from '../basic/Input'
+import { HStack, Heading, VStack } from '../core'
+import Input from '../core/Input'
 
 export default function HomeHeader() {
-  const { primary } = useTheme()
-  const { theme, toggleTheme } = useAppTheme()
+  const { colorMode, toggleTheme } = useAppTheme()
 
   return (
-    <YStack mx="$md">
-      <XStack jc="space-between">
-        <Heading fs="$5" mb="$md">
-          Search products
-        </Heading>
+    <VStack mx="$medium">
+      <HStack justifyContent="space-between">
+        <Heading mb="$medium">Search products</Heading>
 
         <TouchableOpacity
           onPress={toggleTheme}
@@ -24,15 +22,15 @@ export default function HomeHeader() {
             right: 8,
           }}
         >
-          {theme === 'dark' ? (
-            <Feather name="sun" size={24} color={primary.get()} />
+          {colorMode === 'dark' ? (
+            <Feather name="sun" size={24} color={theme.colors.white} />
           ) : (
-            <Feather name="moon" size={24} color={primary.get()} />
+            <Feather name="moon" size={24} color={theme.colors.black} />
           )}
         </TouchableOpacity>
-      </XStack>
+      </HStack>
 
       <Input search placeholder='Try "Yeezy boost 350"' />
-    </YStack>
+    </VStack>
   )
 }

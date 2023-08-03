@@ -1,6 +1,7 @@
 import { TouchableOpacity } from 'react-native'
 import { Tabs, router } from 'expo-router'
-import { Stack, XStack, useTheme } from 'tamagui'
+import theme from '~/assets/theme'
+import { HStack, Stack } from '../core'
 
 type BottomTabProps = Parameters<
   NonNullable<Parameters<typeof Tabs>[0]['tabBar']>
@@ -20,8 +21,6 @@ export default function BottomTabs({
   navigation,
   state,
 }: BottomTabProps) {
-  const { background, secondary } = useTheme()
-
   const handlePress = ({
     routeKey,
     routeName,
@@ -48,12 +47,12 @@ export default function BottomTabs({
   }
 
   return (
-    <XStack
-      bg="$primary"
-      br="$xl"
+    <HStack
+      bg="$black"
+      br="$large"
       position="absolute"
       bottom={insets.bottom}
-      px="$md"
+      px="$medium"
       left={50}
       f={1}
       right={50}
@@ -80,12 +79,12 @@ export default function BottomTabs({
             >
               <Stack
                 height={BOTTOM_TABS_HEIGHT}
-                ai="center"
-                jc="center"
-                py="$md"
+                alignItems="center"
+                justifyContent="center"
+                py="$medium"
               >
                 {options?.tabBarIcon?.({
-                  color: isFocused ? background.get() : secondary.get(),
+                  color: isFocused ? theme.colors.white : theme.colors.gray2,
                   focused: isFocused,
                   size: 24,
                 })}
@@ -94,6 +93,6 @@ export default function BottomTabs({
           </Stack>
         )
       })}
-    </XStack>
+    </HStack>
   )
 }
