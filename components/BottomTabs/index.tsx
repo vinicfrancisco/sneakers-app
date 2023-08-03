@@ -49,7 +49,7 @@ export default function BottomTabs({
   return (
     <HStack
       bg="$black"
-      br="$large"
+      br="$round"
       position="absolute"
       bottom={insets.bottom}
       px="$medium"
