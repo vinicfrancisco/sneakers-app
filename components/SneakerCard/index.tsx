@@ -20,7 +20,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
 
   return (
     <Stack
-      bg="$gray1"
+      bg="$gray0"
       w={CARD_WIDTH}
       br="$small"
       borderBottomRightRadius="$large"
@@ -41,7 +41,11 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
           }}
         />
 
-        <HStack alignItems="center" px="$medium">
+        <HStack
+          alignItems="center"
+          justifyContent="space-between"
+          paddingLeft="$medium"
+        >
           <Heading f={1}>{`$ ${retailPrice}`}</Heading>
 
           <Stack
@@ -56,7 +60,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
             <Feather
               name="chevron-right"
               size={32}
-              color={theme.colors.gray1}
+              color={theme.colors.gray0}
             />
           </Stack>
         </HStack>

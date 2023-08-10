@@ -84,7 +84,7 @@ export default function BottomTabs({
                 py="$medium"
               >
                 {options?.tabBarIcon?.({
-                  color: isFocused ? theme.colors.white : theme.colors.gray2,
+                  color: isFocused ? theme.colors.white : theme.colors.gray6,
                   focused: isFocused,
                   size: 24,
                 })}

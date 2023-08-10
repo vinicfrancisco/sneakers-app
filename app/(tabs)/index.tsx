@@ -318,51 +318,55 @@ export default function Home() {
   const { bottom, top } = useSafeAreaInsets()
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        paddingBottom: BOTTOM_TABS_HEIGHT + bottom + theme.space.medium,
-        paddingTop: top + theme.space.medium,
-      }}
-    >
-      <HomeHeader />
-
-      <Heading mx="$medium" my="$large" color="$gray3">
-        New Releases
-      </Heading>
-
-      <FlashList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        ItemSeparatorComponent={() => <Stack w="$large" />}
-        estimatedItemSize={CARD_WIDTH}
-        data={mock}
+    <Stack flex={1} bg="$white">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingHorizontal: theme.space.medium,
+          backgroundColor: theme.colors.white,
+          paddingBottom: BOTTOM_TABS_HEIGHT + bottom + theme.space.medium,
+          paddingTop: top + theme.space.medium,
         }}
-        renderItem={({ item }) => <SneakerCard data={item} />}
-      />
+      >
+        <HomeHeader />
 
-      <Stack px="$medium">
-        <Heading color="$gray3" my="$large">
-          Upcoming
+        <Heading mx="$medium" my="$large" color="$gray5">
+          New Releases
         </Heading>
 
-        {mock.slice(0, 5).map((item, index) => (
-          <Fragment key={item.id}>
-            <UpcomingCard data={item} />
+        <FlashList
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <Stack w="$large" />}
+          estimatedItemSize={CARD_WIDTH}
+          data={mock}
+          contentContainerStyle={{
+            paddingHorizontal: theme.space.medium,
+            paddingBottom: theme.space.medium,
+          }}
+          renderItem={({ item }) => <SneakerCard data={item} />}
+        />
 
-            {index >= 0 && index < mock.slice(0, 5).length - 1 && (
-              <Stack
-                my="$small"
-                mx="$medium"
-                h={StyleSheet.hairlineWidth}
-                bg="$black"
-              />
-            )}
-          </Fragment>
-        ))}
-      </Stack>
-    </ScrollView>
+        <Stack px="$medium">
+          <Heading color="$gray5" my="$large">
+            Upcoming
+          </Heading>
+
+          {mock.slice(0, 5).map((item, index) => (
+            <Fragment key={item.id}>
+              <UpcomingCard data={item} />
+
+              {index >= 0 && index < mock.slice(0, 5).length - 1 && (
+                <Stack
+                  my="$small"
+                  mx="$medium"
+                  h={StyleSheet.hairlineWidth}
+                  bg="$gray4"
+                />
+              )}
+            </Fragment>
+          ))}
+        </Stack>
+      </ScrollView>
+    </Stack>
   )
 }

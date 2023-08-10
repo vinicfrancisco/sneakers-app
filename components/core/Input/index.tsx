@@ -22,8 +22,8 @@ function Input({ search, ...props }: InputProps) {
     <HStack
       alignItems="center"
       borderWidth={2}
-      borderColor={isFocused ? '$black' : '$gray2'}
-      bg="$gray1"
+      borderColor={isFocused ? '$black' : 'transparent'}
+      bg="$gray0"
       br="$small"
       paddingLeft="$medium"
     >
@@ -31,12 +31,13 @@ function Input({ search, ...props }: InputProps) {
         <Feather
           name="search"
           size={24}
-          color={isFocused ? theme.colors.black : theme.colors.gray2}
+          color={isFocused ? theme.colors.black : theme.colors.gray4}
         />
       )}
 
       <StyledInput
         {...props}
+        placeholderTextColor={theme.colors.gray4}
         onBlur={() => setIsFocused(false)}
         onFocus={() => setIsFocused(true)}
       />

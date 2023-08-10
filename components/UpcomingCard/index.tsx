@@ -12,7 +12,7 @@ export default function UpcomingCard({ data }: IUpcomingCardProps) {
 
   return (
     <TouchableOpacity>
-      <Stack bg="$gray1" br="$medium">
+      <Stack bg="$gray0" br="$medium">
         <HStack>
           <VStack
             bg="$black"
