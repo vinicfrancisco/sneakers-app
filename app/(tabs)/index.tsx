@@ -329,7 +329,7 @@ export default function Home() {
       >
         <HomeHeader />
 
-        <Heading mx="$medium" my="$large" color="$gray5">
+        <Heading mx="$medium" my="$large" color="$gray5" fs="$medium">
           New Releases
         </Heading>
 
@@ -340,14 +340,13 @@ export default function Home() {
           estimatedItemSize={CARD_WIDTH}
           data={mock}
           contentContainerStyle={{
-            paddingHorizontal: theme.space.medium,
-            paddingBottom: theme.space.medium,
+            paddingHorizontal: theme.space.small,
           }}
           renderItem={({ item }) => <SneakerCard data={item} />}
         />
 
         <Stack px="$medium">
-          <Heading color="$gray5" my="$large">
+          <Heading color="$gray5" my="$large" fs="$medium">
             Upcoming
           </Heading>
 
