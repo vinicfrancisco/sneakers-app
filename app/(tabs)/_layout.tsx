@@ -27,11 +27,11 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="collection"
+        name="profile"
         options={{
-          title: 'My Collection',
+          title: 'Profile',
           tabBarIcon: ({ size, color }) => (
-            <Feather name="shopping-bag" size={size} color={color} />
+            <Feather name="user" size={size} color={color} />
           ),
         }}
       />

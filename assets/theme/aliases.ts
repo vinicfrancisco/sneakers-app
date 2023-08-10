@@ -1,4 +1,4 @@
-const shorthands = {
+const aliases = {
   f: 'flex',
   w: 'width',
   h: 'height',
@@ -17,4 +17,4 @@ const shorthands = {
   fs: 'fontSize',
 } as const
 
-export default shorthands
+export default aliases

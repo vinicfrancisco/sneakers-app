@@ -1,8 +1,7 @@
 import { TouchableOpacity } from 'react-native'
-import { XStack, YStack, Heading, Stack } from 'tamagui'
 import { getDayInMonth, getMonthAbbreviation } from '~/utils/dates'
 import { ISneaker } from '~/domain/sneakers'
-import Text from '../basic/Text'
+import { Center, HStack, Heading, Stack, Text, VStack } from '../core'
 
 interface IUpcomingCardProps {
   data: ISneaker
@@ -13,37 +12,29 @@ export default function UpcomingCard({ data }: IUpcomingCardProps) {
 
   return (
     <TouchableOpacity>
-      <Stack bg="$componentBackground" br="$md">
-        <XStack>
-          <YStack
-            bg="$primary"
-            py="$sm"
-            px="$md"
-            br="$md"
+      <Stack bg="$gray0" br="$medium">
+        <HStack>
+          <VStack
+            bg="$black"
+            py="$small"
+            px="$medium"
+            br="$small"
             borderTopRightRadius={0}
             borderBottomRightRadius={0}
           >
-            <Heading color="$background" fs="$5">
-              {getDayInMonth(releaseDate)}
-            </Heading>
+            <Heading color="$white">{getDayInMonth(releaseDate)}</Heading>
 
-            <Text color="$background" textAlign="center" fs="$3">
+            <Text textAlign="center" color="$white">
               {getMonthAbbreviation(releaseDate)}
             </Text>
-          </YStack>
+          </VStack>
 
-          <Text
-            numberOfLines={1}
-            textAlign="left"
-            my="auto"
-            px="$md"
-            f={1}
-            fs="$2"
-            fontFamily="$heading"
-          >
-            {name}
-          </Text>
-        </XStack>
+          <Center f={1} alignItems="flex-start">
+            <Text numberOfLines={1} textAlign="left" px="$medium">
+              {name}
+            </Text>
+          </Center>
+        </HStack>
       </Stack>
     </TouchableOpacity>
   )
