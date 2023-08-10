@@ -1,7 +1,7 @@
-import { View } from 'react-native'
 import { styled } from '@gluestack-style/react'
+import Stack from '../Stack'
 
-const VStack = styled(View, {
+const VStack = styled(Stack, {
   flexDirection: 'column',
 })
 
