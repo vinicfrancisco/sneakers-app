@@ -2,9 +2,9 @@ import { useContext } from 'react'
 import { ThemeContext } from '~/providers/ThemeProvider'
 
 function useAppTheme() {
-  const { colorMode, toggleTheme } = useContext(ThemeContext)
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
-  return { colorMode, toggleTheme }
+  return { theme, toggleTheme }
 }
 
 export default useAppTheme

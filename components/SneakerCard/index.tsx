@@ -1,9 +1,9 @@
 import { Dimensions, TouchableOpacity } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
-import theme from '~/assets/theme'
+import { Image, Stack, XStack, YStack, useTheme } from 'tamagui'
+import Heading from '~/components/basic/Heading'
 import { ISneaker } from '~/domain/sneakers'
-import { Heading, Stack, VStack, Image, HStack } from '../core'
-import Text from '../core/Text'
+import Text from '../basic/Text'
 
 interface ISneakerCardProps {
   data: ISneaker
@@ -18,22 +18,28 @@ const CARD_BUTTON_HEIGHT = 70
 export default function SneakerCard({ data }: ISneakerCardProps) {
   const { name, brand, image, retailPrice } = data
 
+  const { background } = useTheme()
+
   return (
     <Stack
-      bg="$gray0"
+      bg="$componentBackground"
       w={CARD_WIDTH}
-      br="$small"
-      borderBottomRightRadius="$large"
+      br="$md"
+      borderBottomRightRadius="$lg"
     >
       <TouchableOpacity>
-        <VStack p="$medium">
-          <Heading numberOfLines={2}>{name}</Heading>
+        <YStack p="$md">
+          <Heading fs="$5" paddingRight="$md" numberOfLines={2}>
+            {name}
+          </Heading>
 
-          <Text numberOfLines={1}>{brand}</Text>
-        </VStack>
+          <Text fs="$3" numberOfLines={1} color="$secondary" mt="$sm">
+            {brand}
+          </Text>
+        </YStack>
 
         <Image
-          alt={name}
+          alt="Air Jordan 1 Travis Scott OG"
           h={CARD_IMAGE_HEIGHT}
           resizeMode="contain"
           source={{
@@ -41,29 +47,23 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
           }}
         />
 
-        <HStack
-          alignItems="center"
-          justifyContent="space-between"
-          paddingLeft="$medium"
-        >
-          <Heading f={1}>{`$ ${retailPrice}`}</Heading>
+        <XStack ai="center">
+          <Heading f={1} fs="$5" px="$md">
+            {`$ ${retailPrice}`}
+          </Heading>
 
           <Stack
             h={CARD_BUTTON_HEIGHT}
             w={CARD_BUTTON_WIDTH}
-            bg="$black"
-            alignItems="center"
-            justifyContent="center"
-            borderTopLeftRadius="$medium"
-            borderBottomRightRadius="$large"
+            bg="$primary"
+            ai="center"
+            jc="center"
+            borderTopLeftRadius="$md"
+            borderBottomRightRadius="$xl"
           >
-            <Feather
-              name="chevron-right"
-              size={32}
-              color={theme.colors.gray0}
-            />
+            <Feather name="chevron-right" size={32} color={background.get()} />
           </Stack>
-        </HStack>
+        </XStack>
       </TouchableOpacity>
     </Stack>
   )
