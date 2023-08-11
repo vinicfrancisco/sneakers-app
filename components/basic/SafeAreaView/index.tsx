@@ -1,5 +1,5 @@
-import { GetProps, styled } from 'tamagui'
 import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context'
+import { GetProps, styled } from 'tamagui'
 
 const SafeAreaView = styled(RNSafeAreaView, {
   name: 'SafeAreaView',
