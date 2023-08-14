@@ -1,5 +1,5 @@
 import Feather from '@expo/vector-icons/Feather'
-import { Tabs } from 'expo-router'
+import { Tabs, router } from 'expo-router'
 import BottomTabs from '~/components/BottomTabs'
 
 export default function TabLayout() {
@@ -34,6 +34,15 @@ export default function TabLayout() {
             <Feather name="user" size={size} color={color} />
           ),
         }}
+        listeners={() => ({
+          tabPress: ({ preventDefault }) => {
+            preventDefault()
+
+            // TODO: Check if user is logged in.
+
+            router.push('/auth')
+          },
+        })}
       />
     </Tabs>
   )

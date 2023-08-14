@@ -57,6 +57,14 @@ function RootLayoutNav() {
         name="sneaker"
         options={{ headerShown: false, presentation: 'modal' }}
       />
+
+      <Stack.Screen
+        name="auth"
+        options={{
+          headerShown: false,
+          presentation: 'fullScreenModal',
+        }}
+      />
     </Stack>
   )
 }
