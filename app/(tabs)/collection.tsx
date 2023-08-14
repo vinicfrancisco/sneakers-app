@@ -1,5 +1,5 @@
-import { Stack } from '~/components/core'
-import Text from '~/components/core/Text'
+import { Stack } from 'tamagui'
+import Text from '~/components/basic/Text'
 
 export default function Collection() {
   return (

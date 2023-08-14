@@ -1,11 +1,11 @@
 import { createContext, useCallback, useState } from 'react'
 import { useColorScheme } from 'react-native'
-import { StyledProvider } from '@gluestack-style/react'
 import { StatusBar, setStatusBarStyle } from 'expo-status-bar'
-import { config } from '~/gluestack-style.config'
+import { TamaguiProvider } from 'tamagui'
+import appConfig from '~/tamagui.config'
 
 export interface ThemeContextData {
-  colorMode: 'light' | 'dark'
+  theme: 'light' | 'dark'
   toggleTheme: () => void
 }
 
@@ -14,30 +14,28 @@ export const ThemeContext = createContext<ThemeContextData>(
 )
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const colorScheme = useColorScheme()
+  const systemTheme = useColorScheme()
 
-  const [colorMode, setColorMode] = useState<'light' | 'dark'>(
-    colorScheme || 'light',
-  )
+  const [theme, setTheme] = useState<'light' | 'dark'>(systemTheme || 'light')
 
   const toggleTheme = useCallback(() => {
-    setStatusBarStyle(colorMode === 'light' ? 'light' : 'dark')
+    setStatusBarStyle(theme === 'light' ? 'light' : 'dark')
 
-    setColorMode((state) => (state === 'light' ? 'dark' : 'light'))
-  }, [colorMode])
+    setTheme((state) => (state === 'light' ? 'dark' : 'light'))
+  }, [theme])
 
   return (
     <ThemeContext.Provider
       value={{
-        colorMode,
+        theme,
         toggleTheme,
       }}
     >
-      <StyledProvider config={config} colorMode={colorMode}>
-        <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
+      <TamaguiProvider config={appConfig} defaultTheme={theme}>
+        <StatusBar style={systemTheme === 'dark' ? 'light' : 'dark'} />
 
         {children}
-      </StyledProvider>
+      </TamaguiProvider>
     </ThemeContext.Provider>
   )
 }
