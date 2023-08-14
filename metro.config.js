@@ -12,4 +12,17 @@ const config = getDefaultConfig(__dirname, {
 // https://github.com/expo/expo/issues/23180
 config.resolver.sourceExts.push('mjs')
 
+const { transformer, resolver } = config
+
+config.transformer = {
+  ...transformer,
+  babelTransformerPath: require.resolve('react-native-svg-transformer'),
+}
+
+config.resolver = {
+  ...resolver,
+  assetExts: resolver.assetExts.filter((ext) => ext !== 'svg'),
+  sourceExts: [...resolver.sourceExts, 'svg'],
+}
+
 module.exports = config
