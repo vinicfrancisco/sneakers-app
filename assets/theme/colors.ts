@@ -1,5 +1,9 @@
 const colors = {
+  primary: '#ef3054',
+
   white: '#FFFFFF',
+  black: '#1C1D20',
+
   gray0: '#F7F7F9',
   gray1: '#e9ecef',
   gray2: '#dee2e6',
@@ -9,7 +13,6 @@ const colors = {
   gray6: '#495057',
   gray7: '#343a40',
   gray8: '#212529',
-  black: '#1C1D20',
 }
 
 export default colors
