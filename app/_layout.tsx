@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
 import Feather from '@expo/vector-icons/Feather'
 import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
-import { ThemeProvider } from '~/providers/ThemeProvider'
+import AppProvider from '~/providers'
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -40,11 +39,9 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <RootLayoutNav />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <AppProvider>
+      <RootLayoutNav />
+    </AppProvider>
   )
 }
 
