@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { TextInput } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Link, router, useRouter } from 'expo-router'
 import {
@@ -15,9 +16,9 @@ import {
   TouchableOpacity,
   VStack,
 } from '~/components/core'
+import { useSignInMutation } from '~/store/features/auth/api'
 import SneakerImage from '~/assets/images/sneaker.png'
 import theme from '~/assets/theme'
-import supabase from '~/services/supabase'
 
 export default function SignIn() {
   const { top } = useSafeAreaInsets()
@@ -26,21 +27,20 @@ export default function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const [signIn, { isLoading }] = useSignInMutation()
+
+  const passwordInputRef = useRef<TextInput | null>(null)
+
   const handleSignIn = async () => {
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      await signIn({
         email,
         password,
-      })
-
-      if (error) {
-        // TODO: Deal with Sign In Error
-        return
-      }
+      }).unwrap()
 
       router.push('/(tabs)')
-    } catch {
-      // TODO: Deal with generic error
+    } catch (error) {
+      // TODO: Deal with Sign In Error
     }
   }
 
@@ -83,12 +83,14 @@ export default function SignIn() {
               autoCapitalize="none"
               value={email}
               onChangeText={setEmail}
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
             />
           </Stack>
 
           <Stack my="$small">
             <Input
               secureTextEntry
+              ref={passwordInputRef}
               iconName="key"
               placeholder="Password"
               value={password}
@@ -97,13 +99,13 @@ export default function SignIn() {
             />
           </Stack>
 
-          <Text textAlign="right" bold="true" mb="$small">
+          <Text textAlign="right" bold="true" mb="$medium">
             Forgot password?
           </Text>
 
-          <Button.Container mt="$small">
-            <Button.Text>Sign In</Button.Text>
-          </Button.Container>
+          <Button loading={isLoading} onPress={handleSignIn}>
+            Sign In
+          </Button>
 
           <HStack my="$medium" alignItems="center">
             <Divider mx="$medium" />

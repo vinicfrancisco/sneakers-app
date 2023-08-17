@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { TextInput } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Link, router, useRouter } from 'expo-router'
 import {
@@ -13,9 +14,9 @@ import {
   TouchableOpacity,
   VStack,
 } from '~/components/core'
+import { useSignUpMutation } from '~/store/features/auth/api'
 import SignUpSVG from '~/assets/svgs/SignUp.svg'
 import theme from '~/assets/theme'
-import supabase from '~/services/supabase'
 
 export default function SignUp() {
   const { top } = useSafeAreaInsets()
@@ -26,29 +27,20 @@ export default function SignUp() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const [signUp, { isLoading }] = useSignUpMutation()
+
+  const usernameInputRef = useRef<TextInput | null>(null)
+  const emailInputRef = useRef<TextInput | null>(null)
+  const passwordInputRef = useRef<TextInput | null>(null)
+
   const handleSignUp = async () => {
     try {
-      const { data: signUpData, error: signUpError } =
-        await supabase.auth.signUp({
-          email,
-          password,
-        })
-
-      if (signUpError) {
-        // TODO: Deal with Sign Up Error
-        return
-      }
-
-      const { error } = await supabase.from('profiles').upsert({
-        id: signUpData.session?.user.id,
+      await signUp({
+        email,
+        fullName: name,
         username,
-        full_name: name,
-      })
-
-      if (error) {
-        // TODO: Deal with Update profile error
-        return
-      }
+        password,
+      }).unwrap()
 
       router.push('/(tabs)')
     } catch (error) {
@@ -84,6 +76,7 @@ export default function SignUp() {
               placeholder="Name"
               value={name}
               onChangeText={setName}
+              onSubmitEditing={() => usernameInputRef.current?.focus()}
             />
           </Stack>
 
@@ -94,6 +87,7 @@ export default function SignUp() {
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
+              onSubmitEditing={() => emailInputRef.current?.focus()}
             />
           </Stack>
 
@@ -105,10 +99,11 @@ export default function SignUp() {
               onChangeText={setEmail}
               keyboardType="email-address"
               autoCapitalize="none"
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
             />
           </Stack>
 
-          <Stack my="$small">
+          <Stack mt="$small" mb="$large">
             <Input
               secureTextEntry
               iconName="key"
@@ -119,9 +114,9 @@ export default function SignUp() {
             />
           </Stack>
 
-          <Button.Container mt="$small" onPress={handleSignUp}>
-            <Button.Text>Sign up</Button.Text>
-          </Button.Container>
+          <Button loading={isLoading} onPress={handleSignUp}>
+            Sign Up
+          </Button>
 
           <HStack my="$medium" alignItems="center">
             <Divider mx="$medium" />
