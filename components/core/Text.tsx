@@ -5,7 +5,13 @@ const Text = styled(RNText, {
   color: '$black',
   fontFamily: 'Nunito',
 
-  variants: {},
+  variants: {
+    bold: {
+      true: {
+        fontFamily: 'NunitoBold',
+      },
+    },
+  },
 })
 
 export default Text

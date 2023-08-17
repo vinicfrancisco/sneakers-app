@@ -6,7 +6,7 @@ export default function HomeHeader() {
     <VStack mx="$medium">
       <Heading mb="$medium">Search products</Heading>
 
-      <Input search placeholder='Try "Yeezy boost 350"' />
+      <Input iconName="search" placeholder='Try "Yeezy boost 350"' />
     </VStack>
   )
 }

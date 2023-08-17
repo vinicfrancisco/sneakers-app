@@ -1,8 +1,11 @@
 import Feather from '@expo/vector-icons/Feather'
-import { Tabs } from 'expo-router'
+import { Tabs, router } from 'expo-router'
 import BottomTabs from '~/components/BottomTabs'
+import { useAppSelector } from '~/hooks'
 
 export default function TabLayout() {
+  const session = useAppSelector((state) => state.auth.session)
+
   return (
     <Tabs tabBar={(props) => <BottomTabs {...props} />}>
       <Tabs.Screen
@@ -34,6 +37,17 @@ export default function TabLayout() {
             <Feather name="user" size={size} color={color} />
           ),
         }}
+        listeners={() => ({
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          tabPress: ({ preventDefault }) => {
+            if (!session) {
+              preventDefault()
+
+              router.push('/auth')
+            }
+          },
+        })}
       />
     </Tabs>
   )
