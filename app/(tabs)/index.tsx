@@ -3,16 +3,14 @@ import { StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { FlashList } from '@shopify/flash-list'
 import { BOTTOM_TABS_HEIGHT } from '~/components/BottomTabs'
-import { Button, Stack } from '~/components/core'
+import { Stack } from '~/components/core'
 import Heading from '~/components/core/Heading'
 import ScrollView from '~/components/core/ScrollView'
 import HomeHeader from '~/components/HomeHeader'
 import SneakerCard, { CARD_WIDTH } from '~/components/SneakerCard'
 import UpcomingCard from '~/components/UpcomingCard'
-import { AuthActions } from '~/store/features/auth/slice'
 import theme from '~/assets/theme'
 import { ISneaker } from '~/domain/sneakers'
-import { useAppDispatch } from '~/hooks'
 
 const mock: ISneaker[] = [
   {
@@ -318,7 +316,6 @@ const mock: ISneaker[] = [
 ]
 
 export default function Home() {
-  const dispatch = useAppDispatch()
   const { bottom, top } = useSafeAreaInsets()
 
   return (
@@ -332,11 +329,6 @@ export default function Home() {
         }}
       >
         <HomeHeader />
-
-        {/* Temporary */}
-        <Button.Container onPress={() => dispatch(AuthActions.signOut())}>
-          <Button.Text>Sign out</Button.Text>
-        </Button.Container>
 
         <Heading mx="$medium" my="$large" color="$gray5" fs="$medium">
           New Releases
