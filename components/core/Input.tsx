@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { forwardRef, useState } from 'react'
 import { TextInput, TextInputProps } from 'react-native'
 import Feather from '@expo/vector-icons/Feather'
 import { styled } from '@gluestack-style/react'
@@ -17,7 +17,10 @@ const StyledInput = styled(TextInput, {
   fontSize: '$small',
 })
 
-function Input({ iconName, ...props }: InputProps) {
+const Input = forwardRef<TextInput, InputProps>(function Input(
+  { iconName, ...props },
+  ref,
+) {
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
   return (
@@ -38,6 +41,7 @@ function Input({ iconName, ...props }: InputProps) {
       )}
 
       <StyledInput
+        ref={ref as any}
         {...props}
         placeholderTextColor={theme.colors.gray4}
         onBlur={() => setIsFocused(false)}
@@ -45,6 +49,6 @@ function Input({ iconName, ...props }: InputProps) {
       />
     </HStack>
   )
-}
+})
 
 export default Input
