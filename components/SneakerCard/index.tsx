@@ -19,7 +19,7 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
   const { name, brand, image, retailPrice } = data
 
   return (
-    <Stack
+    <VStack
       bg="$gray0"
       w={CARD_WIDTH}
       br="$small"
@@ -65,6 +65,6 @@ export default function SneakerCard({ data }: ISneakerCardProps) {
           </Stack>
         </HStack>
       </TouchableOpacity>
-    </Stack>
+    </VStack>
   )
 }

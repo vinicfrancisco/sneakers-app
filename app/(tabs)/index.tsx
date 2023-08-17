@@ -3,9 +3,8 @@ import { StyleSheet } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { FlashList } from '@shopify/flash-list'
 import { BOTTOM_TABS_HEIGHT } from '~/components/BottomTabs'
-import { Stack } from '~/components/core'
+import { ScrollView, Stack } from '~/components/core'
 import Heading from '~/components/core/Heading'
-import ScrollView from '~/components/core/ScrollView'
 import HomeHeader from '~/components/HomeHeader'
 import SneakerCard, { CARD_WIDTH } from '~/components/SneakerCard'
 import UpcomingCard from '~/components/UpcomingCard'
@@ -319,54 +318,54 @@ export default function Home() {
   const { bottom, top } = useSafeAreaInsets()
 
   return (
-    <Stack flex={1} bg="$white">
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          backgroundColor: theme.colors.white,
-          paddingBottom: BOTTOM_TABS_HEIGHT + bottom + theme.space.medium,
-          paddingTop: top + theme.space.medium,
-        }}
-      >
-        <HomeHeader />
+    <ScrollView
+      bg="$white"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        flex: 1,
+        backgroundColor: theme.colors.white,
+        paddingBottom: BOTTOM_TABS_HEIGHT + bottom + theme.space.medium,
+        paddingTop: top + theme.space.medium,
+      }}
+    >
+      <HomeHeader />
 
-        <Heading mx="$medium" my="$large" color="$gray5" fs="$medium">
-          New Releases
+      <Heading mx="$medium" my="$large" color="$gray5" fs="$medium">
+        New Releases
+      </Heading>
+
+      <FlashList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        ItemSeparatorComponent={() => <Stack w="$large" />}
+        estimatedItemSize={CARD_WIDTH}
+        data={mock}
+        contentContainerStyle={{
+          paddingHorizontal: theme.space.small,
+        }}
+        renderItem={({ item }) => <SneakerCard data={item} />}
+      />
+
+      <Stack px="$medium">
+        <Heading color="$gray5" my="$large" fs="$medium">
+          Upcoming
         </Heading>
 
-        <FlashList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <Stack w="$large" />}
-          estimatedItemSize={CARD_WIDTH}
-          data={mock}
-          contentContainerStyle={{
-            paddingHorizontal: theme.space.small,
-          }}
-          renderItem={({ item }) => <SneakerCard data={item} />}
-        />
+        {mock.slice(0, 5).map((item, index) => (
+          <Fragment key={item.id}>
+            <UpcomingCard data={item} />
 
-        <Stack px="$medium">
-          <Heading color="$gray5" my="$large" fs="$medium">
-            Upcoming
-          </Heading>
-
-          {mock.slice(0, 5).map((item, index) => (
-            <Fragment key={item.id}>
-              <UpcomingCard data={item} />
-
-              {index >= 0 && index < mock.slice(0, 5).length - 1 && (
-                <Stack
-                  my="$small"
-                  mx="$medium"
-                  h={StyleSheet.hairlineWidth}
-                  bg="$gray4"
-                />
-              )}
-            </Fragment>
-          ))}
-        </Stack>
-      </ScrollView>
-    </Stack>
+            {index >= 0 && index < mock.slice(0, 5).length - 1 && (
+              <Stack
+                my="$small"
+                mx="$medium"
+                h={StyleSheet.hairlineWidth}
+                bg="$gray4"
+              />
+            )}
+          </Fragment>
+        ))}
+      </Stack>
+    </ScrollView>
   )
 }

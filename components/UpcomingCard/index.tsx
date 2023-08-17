@@ -12,7 +12,7 @@ export default function UpcomingCard({ data }: IUpcomingCardProps) {
 
   return (
     <TouchableOpacity>
-      <Stack bg="$gray0" br="$medium">
+      <VStack bg="$gray0" br="$medium">
         <HStack>
           <VStack
             bg="$black"
@@ -35,7 +35,7 @@ export default function UpcomingCard({ data }: IUpcomingCardProps) {
             </Text>
           </Center>
         </HStack>
-      </Stack>
+      </VStack>
     </TouchableOpacity>
   )
 }
