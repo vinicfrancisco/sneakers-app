@@ -1,7 +1,8 @@
 import { createContext, useCallback, useEffect } from 'react'
 import { router } from 'expo-router'
+import { useGetProfileQuery } from '~/store/features/auth/api'
 import { AuthActions } from '~/store/features/auth/slice'
-import { useAppDispatch } from '~/hooks'
+import { useAppDispatch, useAppSelector } from '~/hooks'
 import supabase from '~/services/supabase'
 
 export const AuthContext = createContext(null)
@@ -10,6 +11,17 @@ const { setSession } = AuthActions
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const dispatch = useAppDispatch()
+
+  const userId = useAppSelector((state) => state.auth.session?.user.id)
+
+  useGetProfileQuery(
+    {
+      userId,
+    },
+    {
+      skip: !userId,
+    },
+  )
 
   const handleSignOut = useCallback(() => {
     router.push('/auth')
