@@ -1,57 +1,53 @@
 import { memo } from 'react'
-import { Dimensions } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import { Dimensions, TouchableOpacity } from 'react-native'
+import Feather from '@expo/vector-icons/Feather'
 import theme from '~/assets/theme'
 import { ISneaker } from '~/domain/sneakers'
-import {
-  Heading,
-  Text,
-  VStack,
-  Image,
-  TouchableOpacity,
-  HStack,
-  Stack,
-} from '../core'
+import { Heading, Stack, VStack, Image, HStack } from '../core'
+import Text from '../core/Text'
 
 interface IShowcaseSneakerCardProps {
   data: ISneaker
 }
 
 const SCREEN_WIDTH = Dimensions.get('window').width
-const CARD_WIDTH = SCREEN_WIDTH - 2 * theme.space.medium
-const CARD_IMAGE_HEIGHT = 250
+export const CARD_WIDTH = SCREEN_WIDTH * 0.6
+const CARD_IMAGE_HEIGHT = 160
 const CARD_BUTTON_WIDTH = CARD_WIDTH * 0.4
 const CARD_BUTTON_HEIGHT = 70
 
-function SneakerCard({ data }: IShowcaseSneakerCardProps) {
+function ShowcaseSneakerCard({ data }: IShowcaseSneakerCardProps) {
   const { name, brand, image, retailPrice } = data
 
   return (
-    <TouchableOpacity>
-      <VStack bg="$gray0" f={1} br="$large">
+    <VStack
+      bg="$gray0"
+      w={CARD_WIDTH}
+      br="$small"
+      borderBottomRightRadius="$large"
+    >
+      <TouchableOpacity>
         <VStack p="$medium">
           <Heading numberOfLines={2}>{name}</Heading>
-          <Text numberOfLines={1}>{brand}</Text>
 
-          <Image
-            alt={name}
-            h={CARD_IMAGE_HEIGHT}
-            w="100%"
-            resizeMode="contain"
-            source={{
-              uri: image.small,
-            }}
-          />
+          <Text numberOfLines={1}>{brand}</Text>
         </VStack>
+
+        <Image
+          alt={name}
+          h={CARD_IMAGE_HEIGHT}
+          resizeMode="contain"
+          source={{
+            uri: image.small,
+          }}
+        />
 
         <HStack
           alignItems="center"
           justifyContent="space-between"
           paddingLeft="$medium"
         >
-          <Heading f={1}>
-            {retailPrice ? `$ ${retailPrice}` : 'Not available'}
-          </Heading>
+          <Heading f={1}>{`$ ${retailPrice}`}</Heading>
 
           <Stack
             h={CARD_BUTTON_HEIGHT}
@@ -69,9 +65,9 @@ function SneakerCard({ data }: IShowcaseSneakerCardProps) {
             />
           </Stack>
         </HStack>
-      </VStack>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </VStack>
   )
 }
 
-export default memo(SneakerCard)
+export default memo(ShowcaseSneakerCard)
