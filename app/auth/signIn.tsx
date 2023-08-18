@@ -1,10 +1,9 @@
 import { useRef, useState } from 'react'
 import { TextInput } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
-import { Link, router, useRouter } from 'expo-router'
+import { Link, router } from 'expo-router'
 import {
   Button,
-  CloseButton,
   Divider,
   HStack,
   Heading,
@@ -22,7 +21,6 @@ import theme from '~/assets/theme'
 
 export default function SignIn() {
   const { top } = useSafeAreaInsets()
-  const { back } = useRouter()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -49,15 +47,9 @@ export default function SignIn() {
       bg="$white"
       contentContainerStyle={{
         flex: 1,
+        paddingTop: top + theme.space.medium,
       }}
     >
-      <CloseButton
-        onPress={back}
-        marginLeft="auto"
-        marginRight="$medium"
-        marginTop={top + theme.space.medium}
-      />
-
       <VStack flex={1} alignItems="center" mt="$xlarge">
         <Image
           source={SneakerImage}
